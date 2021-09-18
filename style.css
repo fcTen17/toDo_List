@@ -26,7 +26,7 @@
   }
 
   #topDiv {
-    height: 300px;
+    height: 298px;
     background-color: transparent;
   }
  
@@ -39,7 +39,7 @@
   }
 
   .container {
-      max-width: 400px;     
+      max-width: 370px;     
   }
 
   .form-group {
@@ -50,7 +50,7 @@
     margin: auto;
     margin-top: 100px;
     text-align:center;
-    width: 400px;
+    width: 370px;
     background-color: mintcream;
     border-radius: 8px;
     opacity: 0.95;
@@ -61,6 +61,39 @@
   }
 
   #radioButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+  }
+
+  .filter {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+  
+    border: 2px solid #999;
+    transition: 0.2s all linear;
+    margin-right: 5px;
+  
+    position: relative;
+    top: 4px;
+  }
+  
+  .filter:checked {
+    border: 6px solid black;
+  }
+  
+
+
+  label {
+    opacity: 0.5;
+  }
+  /* #radioButtons {
     position: fixed;
     margin-left: 60px;
     margin-top: 300px; 
@@ -68,9 +101,10 @@
     height: auto;
     background-color: mintcream;
     padding: 10px;
-    opacity: 0.8;
+    opacity: 0.95;
     border-radius: 6px;
-  }
+    z-index: 1;
+  } */
 
   .task-container {
     display: flex;
@@ -84,24 +118,25 @@
 
   .task-wrapper {
       display:flex;
+      opacity: 0.8;
       align-items: center;
       justify-content: center;
       border-radius: 20px;
       border-top: 2px black solid;
       border-right: 2px black solid;
       border-bottom: 2px black solid;
-      background-color: mintcream;
+      background-color:palegreen;
       margin-bottom: 10px;
   }
 
   .task-background {
-    background-color:bisque; 
+    background-color:darkseagreen; 
   }
 
   .task-title {
       font-size: x-large;
       margin-top: 16px;
-      background-color:mintcream;
+      background-color: mintcream;
       padding: 10px;
       border-radius: 6px;
   }
