@@ -29,19 +29,46 @@ const updateList = () => {
     url: 'https://altcademy-to-do-list-api.herokuapp.com/tasks?api_key=141',
     dataType: 'json',
     success: function (response, textStatus) {
-      console.log(response);
-      tasksArr = response;
-      console.log('tasksArr.tasks.length: ' + tasksArr.tasks.length);
-      for ( i = 0; i < tasksArr.tasks.length; i++) {
-        console.log('i: ' + i);
-        console.log('tasksArr.tasks[i].content: ' + tasksArr.tasks[i].content)
-        console.log('tasksArr.tasks[i].completed: ' + tasksArr.tasks[i].completed)
-        if (tasksArr.tasks[i].completed) {
-          addTaskCompleted(tasksArr.tasks[i].content);
+        console.log(response);
+        tasksArr = response;
+        let activeArr = tasksArr.tasks.filter(obj => {
+          return obj.completed === false;
+        });
+        let completedArr = tasksArr.tasks.filter(obj => {
+          return obj.completed === true;
+        });
+      
+        console.log('activeArr: ' + activeArr);
+        console.log('completedArr: ' + completedArr);
+        const activeOption = document.getElementById('activeSelected');
+        //console.log('activeOption: ' + activeOption);
+        const completedOption = document.getElementById('completedSelected');
+        //console.log('completedOption: ' + completedOption);
+      
+        if (activeOption.checked) {
+          console.log('Active Selected!');
+          for ( i = 0; i < activeArr.length; i++) {
+            addTask(activeArr[i].content);
+          }
+        }   else if (completedOption.checked) {
+          console.log('Completed Selected!');
+          for ( i = 0; i < completedArr.length; i++) {
+            addTaskCompleted(completedArr[i].content);
+          }
         } else {
-          addTask(tasksArr.tasks[i].content);
-        }                
-      } 
+        console.log('tasksArr: ' + tasksArr);
+        console.log('tasksArr.tasks.length: ' + tasksArr.tasks.length);
+        for ( i = 0; i < tasksArr.tasks.length; i++) {
+          console.log('i: ' + i);
+          console.log('tasksArr.tasks[i].content: ' + tasksArr.tasks[i].content)
+          console.log('tasksArr.tasks[i].completed: ' + tasksArr.tasks[i].completed)
+          if (tasksArr.tasks[i].completed) {
+            addTaskCompleted(tasksArr.tasks[i].content);
+          } else {
+            addTask(tasksArr.tasks[i].content);
+          }                
+        } 
+      }
     },
     error: function (request, textStatus, errorMessage) {
       console.log(errorMessage);
@@ -150,7 +177,15 @@ $(document).ready(function () {
         //console.log(errorMessage);
       }
     });     
-  }); 
+  });
+
+  $(document).on('click', '.filter', function () {
+    console.log('Filter clicked!');
+    updateList();
+  });
+
+
+
 });
 
 

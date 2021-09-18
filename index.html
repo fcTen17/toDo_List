@@ -23,9 +23,26 @@
         <div id="newTaskDiv">
             <form class="form-group task-form">
                 <input type="text" class="form-control mb-2" id="newTask" placeholder="write your new ToDo here" val="test Task" required>           
-                <input id="newUnitSubmit" type="submit" class="btn btn-outline-info" value="Add Item">
+                <input id="newUnitSubmit" type="submit" class="btn btn-outline-info" value="Add Item">        
             </form>
+        
+            <div>
+              <input type="radio" id="allSelected" class="filter" name="filter" value="all" checked>
+              <label for="allSelected">All</label>
+            </div>
+            
+            <div>
+              <input type="radio" id="activeSelected"  class="filter" name="filter" value="active">
+              <label for="activeSelected">Active</label>
+            </div>
+            
+            <div>
+              <input type="radio" id="completedSelected" class="filter" name="filter" value="completed">
+              <label for="completedSelected">Completed</label>
+            </div>
+
         </div>
+
         <div class="task-container">
 
         </div>
