@@ -37,7 +37,11 @@ const updateList = () => {
         let completedArr = tasksArr.tasks.filter(obj => {
           return obj.completed === true;
         });
-      
+        
+        $('#allTotal').text(`${tasksArr.tasks.length}`);
+        $('#activeTotal').text(`${activeArr.length}`);
+        $('#completedTotal').text(`${completedArr.length}`);
+
         console.log('activeArr: ' + activeArr);
         console.log('completedArr: ' + completedArr);
         const activeOption = document.getElementById('activeSelected');

@@ -19,34 +19,44 @@
     <script src="script.js"></script>
   </head>
   <body>
-    <div class="container">
-        <div id="newTaskDiv">
-            <form class="form-group task-form">
-                <input type="text" class="form-control mb-2" id="newTask" placeholder="write your new ToDo here" val="test Task" required>           
-                <input id="newUnitSubmit" type="submit" class="btn btn-outline-info" value="Add Item">        
-            </form>
-        
-            <div>
-              <input type="radio" id="allSelected" class="filter" name="filter" value="all" checked>
-              <label for="allSelected">All</label>
-            </div>
-            
-            <div>
-              <input type="radio" id="activeSelected"  class="filter" name="filter" value="active">
-              <label for="activeSelected">Active</label>
-            </div>
-            
-            <div>
-              <input type="radio" id="completedSelected" class="filter" name="filter" value="completed">
-              <label for="completedSelected">Completed</label>
-            </div>
+    
+      <div id="radioButtons">
+        <fieldset>
+          <legend>Show</legend>
+          <div>
+            <input type="radio" id="allSelected" class="filter" name="filter" value="all" checked>
+            <label for="allSelected">All (<span id="allTotal"></span>) </label>
+          </div>
+    
+          <div>
+            <input type="radio" id="activeSelected"  class="filter" name="filter" value="active">
+            <label for="activeSelected">Active (<span id="activeTotal"></span>)</label>
+          </div>
+    
+          <div>
+            <input type="radio" id="completedSelected" class="filter" name="filter" value="completed">
+            <label for="completedSelected">Completed (<span id="completedTotal"></span>)</label>
+          </div>
+        </fieldset>
+      </div>
+    
+    <div id="topFixed">  
+      <div id="newTaskDiv">
+        <h1>TODO TODAY</h1>
+        <form class="form-group task-form">
+            <input type="text" class="form-control mt-4 mb-4" id="newTask" placeholder="write your new ToDo here" val="test Task" required>           
+            <input id="newUnitSubmit" type="submit" class="btn btn-outline-info mb-2" value="Add Item">        
+        </form>
+      </div>
+    </div>  
 
-        </div>
-
-        <div class="task-container">
-
-        </div>
+    <div id="topDiv">
 
     </div>
+    
+      <div class="task-container container">
+
+      </div>
+    
   </body>
 </html>
